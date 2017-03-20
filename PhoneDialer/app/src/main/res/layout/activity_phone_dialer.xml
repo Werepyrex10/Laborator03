@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:enabled="false"
         android:inputType="textPersonName" />
 
     <GridLayout
@@ -132,7 +133,7 @@
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="2"
+            android:layout_column="1"
             android:layout_gravity="center_horizontal"
             android:layout_row="0"
             android:onClick="backspaceOnClick"
@@ -157,6 +158,16 @@
             android:layout_row="5"
             android:onClick="endOnClick"
             app:srcCompat="@drawable/hangup" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_row="5"
+            android:onClick="contactsOnClick"
+            app:srcCompat="@drawable/contacts" />
     </GridLayout>
 
 </LinearLayout

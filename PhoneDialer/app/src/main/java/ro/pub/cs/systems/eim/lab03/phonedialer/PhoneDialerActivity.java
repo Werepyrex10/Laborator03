@@ -1,6 +1,7 @@
 package ro.pub.cs.systems.eim.lab03.phonedialer;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PhoneDialerActivity extends AppCompatActivity {
 
@@ -59,5 +61,21 @@ public class PhoneDialerActivity extends AppCompatActivity {
 
     public void endOnClick(View view) {
         finish();
+    }
+
+    public void contactsOnClick(View view) {
+        EditText number = (EditText) findViewById(R.id.textCall);
+        Intent intent = new Intent("ro.pub.cs.systems.eim.lab04.contactsmanager.intent.action.ContactsManagerActivity");
+        intent.putExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY", number.getText().toString());
+        startActivityForResult(intent, 1);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK)
+                Toast.makeText(this, "SUCCES", Toast.LENGTH_SHORT).show();
+            else if(resultCode == Activity.RESULT_CANCELED)
+                Toast.makeText(this, "CANCELED", Toast.LENGTH_SHORT).show();
+        }
     }
 }
